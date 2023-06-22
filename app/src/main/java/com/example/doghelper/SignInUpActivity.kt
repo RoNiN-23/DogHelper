@@ -2,27 +2,28 @@ package com.example.doghelper
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.doghelper.constance.Constance
 import com.example.doghelper.databinding.ActivitySignInUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+
 class SignInUpActivity : AppCompatActivity() {
     lateinit var bindingClass: ActivitySignInUpBinding
     lateinit var etEmail: EditText
     lateinit var etConfPass: EditText
     private lateinit var etPass: EditText
-    private lateinit var bDone: Button
+    private lateinit var bDone: TextView
     private lateinit var auth: FirebaseAuth
-    private lateinit var tvRedirect: TextView
+    private lateinit var tvRedirect1: TextView
+    private lateinit var tvRedirect2: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,8 @@ class SignInUpActivity : AppCompatActivity() {
         bindingClass = ActivitySignInUpBinding.inflate(layoutInflater)
         setContentView(bindingClass.root)
 
-        tvRedirect = findViewById(R.id.tvRedirect)
+        tvRedirect1 = findViewById(R.id.tvRedirect1)
+        tvRedirect2 = findViewById(R.id.tvRedirect2)
         bDone = findViewById(R.id.bDone)
         etEmail = findViewById(R.id.etEmailAddressSU)
         etPass = findViewById(R.id.etPasswordSU)
@@ -38,15 +40,18 @@ class SignInUpActivity : AppCompatActivity() {
 
 
         if (intent.getStringExtra(Constance.SIGN_STATE) == Constance.SIGN_IN_STATE) {
+            bindingClass.backSign.maxHeight = 900
             etConfPass.visibility = View.GONE
             bDone.text = getString(R.string.sign_in)
-            tvRedirect.text = getString(R.string.redirect_sign_in)
+            tvRedirect1.text = getString(R.string.redirect_sign_in1)
+            tvRedirect2.text = getString(R.string.redirect_sign_in2)
             auth = FirebaseAuth.getInstance()
 
         } else if (intent.getStringExtra(Constance.SIGN_STATE) == Constance.SIGN_UP_STATE) {
             etConfPass.visibility = View.VISIBLE
             bDone.text = getString(R.string.sign_up)
-            tvRedirect.text = getString(R.string.redirect_sign_up)
+            tvRedirect1.text = getString(R.string.redirect_sign_up1)
+            tvRedirect2.text = getString(R.string.redirect_sign_up2)
             auth = Firebase.auth
         }
 
@@ -58,7 +63,7 @@ class SignInUpActivity : AppCompatActivity() {
             }
         }
 
-        tvRedirect.setOnClickListener {
+        tvRedirect2.setOnClickListener {
             if (intent.getStringExtra(Constance.SIGN_STATE) == Constance.SIGN_IN_STATE) {
                 val intent = Intent(this, SignInUpActivity::class.java)
                 intent.putExtra(Constance.SIGN_STATE, Constance.SIGN_UP_STATE)
@@ -91,7 +96,7 @@ class SignInUpActivity : AppCompatActivity() {
                     editor.putString("PASSWORD", etPass.text.toString())
                     editor.apply()
                     Toast.makeText(this, "Авторизация прошла успешно", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this,HomeActivity::class.java)
+                    val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                 } else
                     Toast.makeText(

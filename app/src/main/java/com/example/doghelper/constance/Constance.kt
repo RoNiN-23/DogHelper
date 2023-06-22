@@ -9,5 +9,6 @@ object Constance {
     const val EMAIL  = "email"
     const val PASSWORD  = "password"
     const val REDIRECT_SIGN_IN  = "password"
+    const val MAPKIT_API_KEY = "24143288-bb41-4af2-b939-5e96736fd009"
 
 }

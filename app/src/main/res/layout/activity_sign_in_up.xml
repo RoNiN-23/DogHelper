@@ -4,62 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/background"
     tools:context=".SignInUpActivity">
 
-    <EditText
-        android:id="@+id/etEmailAddressSU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/back_sign"
+        android:layout_width="340dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:background="@drawable/back_sign"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
 
-    <EditText
-        android:id="@+id/etPasswordSU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/etEmailAddressSU"
-        app:layout_constraintStart_toStartOf="@+id/etEmailAddressSU"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailAddressSU" />
+        <EditText
+            android:id="@+id/etEmailAddressSU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/sign_in_color"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/sign_in_color"
+            android:textColorHint="@color/sign_in_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etConfirmPasswordSU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/conf_password"
-        android:inputType="textPassword"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/etPasswordSU"
-        app:layout_constraintStart_toStartOf="@+id/etPasswordSU"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordSU" />
+        <EditText
+            android:id="@+id/etPasswordSU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/sign_in_color"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@color/sign_in_color"
+            android:textColorHint="@color/sign_in_color"
+            app:layout_constraintEnd_toEndOf="@+id/etEmailAddressSU"
+            app:layout_constraintStart_toStartOf="@+id/etEmailAddressSU"
+            app:layout_constraintTop_toBottomOf="@+id/etEmailAddressSU" />
 
-    <Button
-        android:id="@+id/bDone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/etPasswordSU"
-        app:layout_constraintStart_toStartOf="@+id/etPasswordSU"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmPasswordSU" />
+        <EditText
+            android:id="@+id/etConfirmPasswordSU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/sign_in_color"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="@string/conf_password"
+            android:inputType="textPassword"
+            android:textColor="@color/sign_in_color"
+            android:textColorHighlight="@color/sign_in_color"
+            android:textColorHint="@color/sign_in_color"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordSU"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordSU"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordSU" />
 
-    <TextView
-        android:id="@+id/tvRedirect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/bDone"
-        app:layout_constraintStart_toStartOf="@+id/bDone"
-        app:layout_constraintTop_toBottomOf="@+id/bDone" />
+        <TextView
+            android:id="@+id/bDone"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_sign_up"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:padding="0dp"
+            android:text="@string/sign_up"
+            android:textColor="@color/back_dark_green"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordSU"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordSU" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tvRedirect2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="TextView"
+                android:textColor="@color/light_green"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvRedirect1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvRedirect1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="TextView"
+                android:textColor="@color/sign_in_color"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
